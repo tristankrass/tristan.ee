@@ -34,6 +34,17 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-source-github-api`,
+      options: {
+        // token: required by the GitHub API
+        token: process.env.GH_TOKEN,
+        // GraphQLquery: defaults to a search query
+        graphQLQuery: anotherString,
+        // variables: defaults to variables needed for a search query
+        variables: someObject,
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
