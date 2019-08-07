@@ -1,7 +1,12 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
+console.log(process.env.GATSBY_GRAPHQL_IDE);
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Tristan Krass`,
+    description: `I am a bussiness oriented developer. While not developing my next crazy idea, I am playing football`,
     author: `@gatsbyjs`,
   },
   plugins: [
@@ -28,8 +33,9 @@ module.exports = {
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
+    `gatsby-plugin-offline`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};
