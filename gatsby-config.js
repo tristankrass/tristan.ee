@@ -40,9 +40,9 @@ module.exports = {
         // token: required by the GitHub API
         token: process.env.GH_TOKEN,
         // GraphQLquery: defaults to a search query
-        graphQLQuery: anotherString,
-        // variables: defaults to variables needed for a search query
-        variables: someObject,
+        // graphQLQuery: anotherString,
+        // // variables: defaults to variables needed for a search query
+        // variables: someObject,
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
