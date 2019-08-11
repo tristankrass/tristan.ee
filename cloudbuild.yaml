@@ -9,8 +9,8 @@ steps:
       - --keyring=cloudbuild-env
       - --key=tristan-env
   # Insert other build steps here
-  - name: 'building out the app'
-    args: ['run', 'build']
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['run', '']
   # Deploy
-  - name: 'Deploying to firebase'
+  - name: 'gcr.io/cloud-builders/npm'
     args: ['run', 'deploy']
