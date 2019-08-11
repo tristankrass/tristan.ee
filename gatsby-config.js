@@ -33,6 +33,28 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-antd',
+      options: {
+        style: true,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-less`, // This is nessecary for overriding antd-default colors
+      options: {
+        javascriptEnabled: true,
+        modifyVars: {
+          'primary-color': '#1890ff',
+          // 'secondary-color': '',
+          // 'text-color': '',
+          // 'text-color-secondary': '',
+          // 'heading-color': '',
+          // 'layout-header-background': '',
+          // 'btn-primary-bg': '',
+          // 'processing-color': '',
+        },
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-catch-links`,
