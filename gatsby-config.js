@@ -52,6 +52,7 @@ module.exports = {
           // 'layout-header-background': '',
           // 'btn-primary-bg': '',
           // 'processing-color': '',
+          'layout-sider-background': '#2a2e35',
         },
       },
     },
