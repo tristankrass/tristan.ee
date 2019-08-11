@@ -4,7 +4,7 @@ steps:
     args: ["install"]
   - name: node:10.15.1
     entrypoint: yarn
-    args: ["install", "firebase-tools"]
+    args: ["add", "firebase-tools"]
   - name: node:10.15.1
     entrypoint: yarn
     args: ["build"]
