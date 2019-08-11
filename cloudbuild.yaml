@@ -10,7 +10,7 @@ steps:
       - --key=tristan-env
   # Insert other build steps here
   - name: 'gcr.io/cloud-builders/npm'
-    args: ['run', '']
+    args: ['run', 'build']
   # Deploy
   - name: 'gcr.io/cloud-builders/npm'
     args: ['run', 'deploy']
