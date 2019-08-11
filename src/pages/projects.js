@@ -4,6 +4,7 @@ import Layout from '../components/layout';
 import { Link, withPrefix } from 'gatsby';
 import SEO from '../components/seo';
 import { Button } from 'antd';
+
 const Projects = ({ data }) => (
   <Layout>
     <SEO title="Projects" />

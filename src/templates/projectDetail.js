@@ -2,13 +2,15 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 export default function projecDetail({ data }) {
-  const project = data.markdownRemark;
-  const details = data.markdownRemark.frontmatter;
+  // const project = data.markdownRemark;
+  // const details = data.markdownRemark.frontmatter;
+  // console.log(details);
+
   return (
     <>
-      <h1>{details.title}</h1>
+      <h1>h</h1>
       <hr />
-      <div dangerouslySetInnerHTML={{ __html: project.html }}></div>
+      {/* <div dangerouslySetInnerHTML={{ __html: project.html }}></div> */}
     </>
   );
 }
