@@ -8,9 +8,9 @@ steps:
       - --location=global
       - --keyring=myproject
       - --key=cloudbuild-env
-      # Install
-      - name: 'gcr.io/cloud-builders/npm'
-        args: ['install']
+      # # Install
+      # - name: 'gcr.io/cloud-builders/npm'
+      #   args: ['install']
       - name: 'gcr.io/cloud-builders/npm'
         args: ['run', 'deploy']
       # Test
