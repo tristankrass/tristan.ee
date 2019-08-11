@@ -16,4 +16,4 @@ steps:
     args: ['run', 'build']
   # Deploy
   - name: 'gcr.io/cloud-builders/npm'
-    args: ['run', 'deploy', '--project', '$PROJECT_ID']
+    args: ['run', 'deploy']
