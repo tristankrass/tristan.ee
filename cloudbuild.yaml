@@ -8,7 +8,10 @@ steps:
       - --location=global
       - --keyring=cloudbuild-env
       - --key=tristan-env
-  # Insert other build steps here
+
+  - name: 'gcr.io/cloud-builders/npm'
+    args: ['install']
+
   - name: 'gcr.io/cloud-builders/npm'
     args: ['run', 'build']
   # Deploy
