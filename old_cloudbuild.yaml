@@ -1,0 +1,13 @@
+steps:
+  - name: Installing dependencies
+    entrypoint: yarn
+    args: ['install']
+  - name: Installing firebase-tools
+    entrypoint: yarn
+    args: ['add', 'firebase-tools']
+  - name: Building the actual project
+    entrypoint: yarn
+    args: ['build']
+  - name: Deploying
+    entrypoint: './node_modules/.bin/firebase'
+    args: ['deploy', '--project', '$PROJECT_ID', '--token', '$_FIREBASE_TOKEN']

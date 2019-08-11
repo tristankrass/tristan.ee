@@ -58,11 +58,11 @@ typings/
 # dotenv environment variables file
 .env
 
-
+.firebase/
 # gatsby files
 .cache/
 public
-
+.hosting*
 hosting.*
 # Mac files
 .DS_Store

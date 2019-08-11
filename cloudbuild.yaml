@@ -1,13 +1,16 @@
 steps:
-  - name: node:10.15.1 
-    entrypoint: yarn
-    args: ["install"]
-  - name: node:10.15.1
-    entrypoint: yarn
-    args: ["add", "firebase-tools"]
-  - name: node:10.15.1
-    entrypoint: yarn
-    args: ["build"]
-  - name: "node:10.15.1"
-    entrypoint: "./node_modules/.bin/firebase"
-    args: ["deploy", "--project", "$PROJECT_ID", "--token", "$_FIREBASE_TOKEN"]
+  - name: gcr.io/cloud-builders/gcloud
+    args:
+      - kms
+      - decrypt
+      - --ciphertext-file=.env.enc
+      - --plaintext-file=.env
+      - --location=global
+      - --keyring=cloudbuild-env
+      - --key=tristan-env
+  # Insert other build steps here
+  - name: 'building out the app'
+    args: ['run', 'build']
+  # Deploy
+  - name: 'Deploying to firebase'
+    args: ['run', 'deploy']

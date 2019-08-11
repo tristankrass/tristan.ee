@@ -50,7 +50,7 @@
     "format": "prettier --write '{gatsby-*.js,src/**/*.{js,jsx,json,css'",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "deploy": "npm run build && firebase deploy --debug --token \"$FIREBASE_TOKEN\"",
+    "deploy": "firebase deploy --debug --token \"$FIREBASE_TOKEN\" --only hosting",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "repository": {
