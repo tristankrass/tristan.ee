@@ -5,9 +5,7 @@ steps:
   # Test
   - name: 'gcr.io/tristan-248813/packer/npm'
     args: ['run', 'test:unit']
-  # Build
   - name: 'gcr.io/tristan-248813/packer/npm'
     args: ['run', 'build']
-  # Deploy
   - name: 'gcr.io/$PROJECT_ID/firebase'
     args: ['deploy']
