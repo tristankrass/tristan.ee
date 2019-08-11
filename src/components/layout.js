@@ -29,11 +29,13 @@ const layout = ({ children }) => {
 
   return (
     <>
-      <Layout style={{ minHeight: '100vh' }}>
+      <Layout>
         <Sider
           collapsible
           collapsed={true}
-          style={{ backgroundColor: '#2a2e35' }}
+          style={{
+            backgroundColor: 'white',
+          }}
         >
           <Link
             to="/"
@@ -49,7 +51,7 @@ const layout = ({ children }) => {
               }}
             />
           </Link>
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+          <Menu defaultSelectedKeys={['1']} mode="inline">
             {routes.map(route => {
               return (
                 <Menu.Item key={route.id}>
