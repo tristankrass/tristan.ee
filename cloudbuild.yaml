@@ -1,17 +1,13 @@
 steps:
 # Install
-- name: 'gcr.io/$PROJECT_ID/packer'
-  args: 
-  - install
-  - project_id=$PROJECT_ID
-  - packer.json
+- name: 'gcr.io/cloud-builders/npm'
+  args: ['install']
 # Test
-- name: 'gcr.io/$PROJECT_ID/packer'
+- name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'test:unit']
 # Build
-- name: 'gcr.io/$PROJECT_ID/packer'
+- name: 'gcr.io/cloud-builders/npm'
   args: ['run', 'build']
 # Deploy
-- name: 'gcr.io/$PROJECT_ID/packer'
+- name: 'gcr.io/$PROJECT_ID/firebase'
   args: ['deploy']
-  
