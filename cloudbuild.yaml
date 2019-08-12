@@ -10,13 +10,16 @@ steps:
       - --key=tristan-env
 
   - name: 'gcr.io/cloud-builders/npm'
+    entrypoint: npm
     args: ['install']
 
   - name: node:10.15.1
-    args: ['install', 'firebase-tools']
+    entrypoint: yarn
+    args: ['add', 'firebase-tools']
 
   - name: 'gcr.io/cloud-builders/npm'
     args: ['run', 'build']
 
-  - name: 'gcr.io/cloud-builders/npm'
+  - name: 'node:10.15.1'
+    entrypoint: './node_modules/.bin/firebase'
     args: ['run', 'deploy']
