@@ -1,11 +1,15 @@
-import React from 'react';
+import { Typography } from 'antd';
 import { Link } from 'gatsby';
-
+import React from 'react';
 import Layout from '../components/layout';
 // import Image from '../components/image';
 import SEO from '../components/seo';
-import { Button, Typography } from 'antd';
+import Search from '../Search';
 
+const searchIndices = [
+  { name: `Projects`, title: `Projects`, hitComp: `ProjectsHit` },
+  { name: `Posts`, title: `Blog Posts`, hitComp: `PostHit` },
+];
 const { Title, Text } = Typography;
 
 const IndexPage = () => (
@@ -14,7 +18,7 @@ const IndexPage = () => (
     <Title>Hey!</Title>
     <Text>I am a full-stack Dev, currently studying at Tal Tech.✌️</Text>
 
-    <Button>Hello antd</Button>
+    <Search collapse indices={searchIndices} />
     <Link to="/blog/">Blog</Link>
   </Layout>
 );

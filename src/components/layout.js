@@ -11,7 +11,7 @@ import { graphql, useStaticQuery, Link } from 'gatsby';
 import React from 'react';
 import './layout.css';
 import Image from './image';
-import { routes } from '../routes';
+import { routes } from '../utils/routes';
 
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
