@@ -20,9 +20,10 @@ steps:
     entrypoint: yarn
     args: ['add', 'firebase-tools']
 
-  - name: 'gcr.io/cloud-builders/npm'
+  - name: 'node:10.15.1'
     id: 'Creating a production app'
-    args: ['run', 'build']
+    entrypoint: yarn
+    args: ['build']
 
   - name: 'node:10.15.1'
     id: 'Deploying the app to production'
