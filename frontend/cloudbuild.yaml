@@ -28,4 +28,4 @@ steps:
   - name: 'node:10.15.1'
     id: 'Deploying the app to production'
     entrypoint: './node_modules/.bin/firebase'
-    args: ['run', 'deploy']
+    args: ['deploy']
