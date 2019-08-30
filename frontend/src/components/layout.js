@@ -1,95 +1,75 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
-// import 'antd/dist/antd.css';
-import { Icon, Layout, Menu } from 'antd';
-import { graphql, useStaticQuery, Link } from 'gatsby';
 import React from 'react';
-import './layout.css';
-import Image from './image';
+import { StaticQuery, graphql, Link } from 'gatsby';
 import { routes } from '../utils/routes';
+import { rhythm, scale } from '../utils/typography';
 
-const { Header, Content, Footer, Sider } = Layout;
-const { SubMenu } = Menu;
+class Layout extends React.Component {
+  render() {
+    const { location, title, children } = this.props;
+    const rootPath = `${__PATH_PREFIX__}/`;
+    let header;
 
-const layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
-  return (
-    <>
-      <Layout>
-        <Sider
-          collapsible
-          collapsed={true}
+    if (location.pathname === rootPath) {
+      header = (
+        <h1
           style={{
-            backgroundColor: 'white',
+            ...scale(1.5),
+            marginBottom: rhythm(1.5),
+            marginTop: 0,
           }}
         >
           <Link
-            to="/"
             style={{
-              color: `white`,
+              boxShadow: `none`,
               textDecoration: `none`,
+              color: `inherit`,
             }}
+            to={`/`}
           >
-            <Image
-              style={{
-                width: '50px',
-                height: '50px',
-              }}
-            />
+            {title}
           </Link>
-          <Menu defaultSelectedKeys={['1']} mode="inline">
-            {routes.map(route => {
-              return (
-                <Menu.Item key={route.id}>
-                  <Link to={route.path}>
-                    <Icon
-                      type={route.icon}
-                      twoToneColor="#531dab"
-                      theme="twoTone"
-                    />
-                    <span>{route.title}</span>
-                  </Link>
-                </Menu.Item>
-              );
-            })}
-          </Menu>
-        </Sider>
-        <Layout>
-          <Content style={{ margin: '0 16px' }}>
-            <main style={{ minHeight: '100vh' }}>{children}</main>
-          </Content>
-          <Footer style={{ textAlign: 'center' }}>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-            &bull;
-            <a href="https://firebase.google.com/">
-              <Icon theme="twoTone" twoToneColor="#FFCA28" type="fire" />
-            </a>
-            &bull;
-            <a href="https://firebase.google.com/">
-              <Icon theme="github" twoToneColor="#FFCA28" type="fire" />
-            </a>
-          </Footer>
-        </Layout>
-      </Layout>
-      {/*  */}
-    </>
-  );
-};
+        </h1>
+      );
+    } else {
+      header = (
+        <h3
+          style={{
+            fontFamily: `Montserrat, sans-serif`,
+            marginTop: 0,
+          }}
+        >
+          <Link
+            style={{
+              boxShadow: `none`,
+              textDecoration: `none`,
+              color: `inherit`,
+            }}
+            to={`/`}
+          >
+            {title}
+          </Link>
+        </h3>
+      );
+    }
+    return (
+      <div
+        style={{
+          marginLeft: `auto`,
+          marginRight: `auto`,
+          maxWidth: rhythm(24),
+          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+        }}
+      >
+        <header>
+          {header}
+          {routes.map(r => {
+            return <Link to={r.path}>{r.title}</Link>;
+          })}
+        </header>
+        <main>{children}</main>
+      </div>
+    );
+  }
+}
 
-export default layout;
+export default Layout;

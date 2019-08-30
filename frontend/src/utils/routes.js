@@ -12,15 +12,9 @@ export const routes = [
     id: '2',
   },
   {
-    title: 'Uses',
-    path: '/uses/',
-    icon: 'pushpin',
-    id: '3',
-  },
-  {
     title: 'Resume',
     path: '/resume/',
     icon: 'file-word',
-    id: '4',
+    id: '3',
   },
 ];

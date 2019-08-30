@@ -1,12 +1,11 @@
 import React from 'react';
 
 import Layout from '../components/layout';
-import { Link, withPrefix } from 'gatsby';
+import { Link, withPrefix, graphql } from 'gatsby';
 import SEO from '../components/seo';
-import { Button } from 'antd';
 
-const Projects = ({ data }) => (
-  <Layout>
+const Projects = ({ data, location, siteTitle }) => (
+  <Layout location={location} title={siteTitle}>
     <SEO title="Projects" />
     <h2>Projects</h2>
     <h3>Total Projects: {data.allMarkdownRemark.totalCount}</h3>
@@ -25,7 +24,7 @@ const Projects = ({ data }) => (
             <h1>{project.title}</h1>
             <p>
               <Link href={project.githublink} target="_blank">
-                <Button color="primary">Visit The Project here.</Button>
+                <button color="primary">Visit The Project here.</button>
               </Link>
             </p>
             <p>
@@ -33,7 +32,7 @@ const Projects = ({ data }) => (
             </p>
             <p>{article.node.excerpt}</p>
             <Link to={project.path} style={{ textDecoration: 'none' }}>
-              <Button type="primary">Read More</Button>
+              <button type="primary">Read More</button>
             </Link>
           </div>
         </div>
@@ -53,10 +52,15 @@ export const projectQuery = graphql`
             title
             githublink
             projectPhoto
-            date(formatString: "YYYY,  DD MMMM")
+            date(formatString: " DD MMMM, YYYY")
           }
           excerpt
         }
+      }
+    }
+    site {
+      siteMetadata {
+        title
       }
     }
   }

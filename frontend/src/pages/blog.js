@@ -1,57 +1,59 @@
+import { Link, graphql } from 'gatsby';
 import React from 'react';
 
 import Layout from '../components/layout';
 import SEO from '../components/seo';
-import { Link } from 'gatsby';
-import { Button } from 'antd';
+import Bio from '../components/bio';
 
-const BlogPage = ({ data }) => (
-  <Layout>
-    <SEO title="Blog" />
-    {data.allMarkdownRemark.edges.map(article => {
-      const project = article.node.frontmatter;
-      return (
-        <div container spacing={40} key={article.node.id} wrap-xs-wrap-reverse>
-          <div item sm={12} md={4} style={{ marginBottom: '5rem' }}>
-            <h1>{project.title}</h1>
-            <p>
-              <Link href={project.githublink} target="_blank">
-                <Button color="primary">Visit The Project here.</Button>
+export default function BlogPage({ data, location, siteTitle }) {
+  return (
+    <Layout location={location} title={siteTitle}>
+      <SEO title="Blog" />
+      <Bio />
+      <div style={{ textAlign: 'center' }}>
+        {data.allMarkdownRemark.edges.map(article => {
+          const project = article.node.frontmatter;
+          return (
+            <article key={project.path}>
+              <Link to={project.path} style={{ textDecoration: 'none' }}>
+                <h1>{project.title}</h1>
+                <p>
+                  <span>{project.date}</span>
+                </p>
+                <p dangerouslySetInnerHTML={{ __html: article.node.excerpt }} />
+                <button type="link">Read More</button>
               </Link>
-            </p>
-            <p>
-              <span>{project.date}</span>
-            </p>
-            <p>{article.node.excerpt}</p>
-            <Link to={project.path} style={{ textDecoration: 'none' }}>
-              <Button type="primary">Read More</Button>
-            </Link>
-          </div>
-        </div>
-      );
-    })}
-  </Layout>
-);
-export const projectQuery = graphql`
+            </article>
+          );
+        })}
+      </div>
+    </Layout>
+  );
+}
+export const BlogQuery = graphql`
   query {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/(blog-posts)/" } }
+      filter: { fileAbsolutePath: { regex: "/blog/" } }
+      sort: { fields: [frontmatter___date_published], order: DESC }
     ) {
       totalCount
       edges {
         node {
-          id
           frontmatter {
-            path
             title
-            githublink
-            projectPhoto
-            date(formatString: "YYYY,  DD MMMM")
+            path
           }
+          id
           excerpt
+          timeToRead
         }
+      }
+    }
+
+    site {
+      siteMetadata {
+        title
       }
     }
   }
 `;
-export default BlogPage;
