@@ -7,22 +7,27 @@ module.exports = {
   siteMetadata: {
     title: `Tristan Krass`,
     description: `I am a bussiness oriented developer. While not developing my next crazy idea, I am playing football`,
-    author: `@gatsbyjs`,
+    author: `@tristankrass`,
+    social: {
+      twitter: 'tristankrass',
+      github: '',
+      instagram: '',
+    },
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `pages`,
-        path: `${__dirname}/projects`,
+        name: 'projects',
+        path: `${__dirname}/content/projects`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/blog-posts`,
-        name: 'blog-posts',
+        path: `${__dirname}/content/blog`,
+        name: 'blog',
       },
     },
     {
@@ -33,32 +38,16 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-antd',
+      resolve: `gatsby-plugin-typography`,
       options: {
-        style: true,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-less`, // This is nessecary for overriding antd-default colors
-      options: {
-        javascriptEnabled: true,
-        modifyVars: {
-          'primary-color': '#1890ff',
-          // 'secondary-color': '',
-          // 'text-color': '',
-          // 'text-color-secondary': '',
-          // 'heading-color': '',
-          // 'layout-header-background': '',
-          // 'btn-primary-bg': '',
-          // 'processing-color': '',
-          'layout-sider-background': '#2a2e35',
-        },
+        pathToConfigModule: `src/utils/typography`,
       },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-catch-links`,
     `gatsby-transformer-remark`,
+    `gatsby-remark-prismjs`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
