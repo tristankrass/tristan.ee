@@ -21,7 +21,7 @@ Nagu eelnev lause märku annab, siis on tegu algajatele mõeldud raamatuga, mill
 #### [CodingBat](https://codingbat.com/python)
 
 Codingbat on suurepärane koht, kus oma õpitu proovile panna. Codingbatis on mitmeid eriraskusega ülesandeid, millest osa on võimalik lahendada ühe reaga, kuid mõne probleemi peale võib kuluda pea kümme rida. Kasutaja saab koheselt tagasisidet oma tulemuse kohta. Kui kõik testid läbisid, võid edasi minna järgmise ülesande juurde.
-![](http://localhost:8888/wp-content/uploads/2018/10/image.png)
+![](/wp-content/uploads/2018/10/image.png)
 Näide Codingbati ülesandest
 
 #### [Codecademy](https://www.codecademy.com/)

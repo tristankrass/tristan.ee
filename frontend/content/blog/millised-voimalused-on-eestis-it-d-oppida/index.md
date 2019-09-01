@@ -17,7 +17,7 @@ Eestis on võimalik arendajaks õppida IT-d neljas ülikoolis. All toon välja n
 - Ja viimaks muidugi [TTÜ](https://www.ttu.ee/teaduskond/infotehnoloogia-teaduskond/sisseastujale-34/bakalaureuseope-42/), mis ühines sellest aastast IT-Kolledžiga ehk erinevaid IT valikuid on igale maitsele. Arvutisüsteemid, informaatika, IT süsteemide administreerimine, IT süsteemide arendus, küberturbe tehnoloogiad ja äriinfotehnoloogia.
 
 Pean mainima, et IT valdkond ei koosne ainult arendajatest.  Nagu allolevalt skeemilt võib välja lugeda, siis erinevaid rolle on mitmeid. Arendajad on ainult üks osa suurest pildist.
-![](http://localhost:8888/wp-content/uploads/2018/09/image.png)[https://startit.ee/skeem/](https://startit.ee/skeem/)
+![](/wp-content/uploads/2018/09/image.png)[https://startit.ee/skeem/](https://startit.ee/skeem/)
 Allolevat linki külastades leiad lehe, mis räägib IKT erinevatest karjääridest. Soovitan lehte kindlasti külastada, kui sa vähegi arvad, et IT võiks sulle huvi pakkuda.
 
 [StartIT](https://startit.ee/)
