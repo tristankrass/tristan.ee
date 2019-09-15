@@ -32,6 +32,11 @@ const IndexPage = props => {
       {/* {user ? signOutUI(user) : signInUI()} */}
       <p>Some serious stuff coming in...</p>
       <hr />
+      <button>
+        <a href="https://krass.netlify.com/rss.xml">
+          Add feed to your RSS reader
+        </a>
+      </button>
       <h2>Github stuff comes here.••••</h2>
     </Layout>
   );
