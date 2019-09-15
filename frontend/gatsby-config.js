@@ -8,6 +8,7 @@ module.exports = {
     title: `Tristan Krass`,
     description: `I am a bussiness oriented developer. While not developing my next crazy idea, I am playing football`,
     author: `@tristankrass`,
+    siteUrl: `https://krass.netlify.com/`,
     social: {
       twitter: 'tristankrass',
       github: '',
@@ -16,6 +17,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-feed`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
