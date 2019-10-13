@@ -10,11 +10,14 @@ export default function BlogPage({ data, location, siteTitle }) {
     <Layout location={location} title={siteTitle}>
       <SEO title="Blog" />
       <Bio />
-      <div>
+      <div className="container is-narrow columns is-multiline is-variable is-12">
         {data.allMarkdownRemark.edges.map(article => {
           const project = article.node.frontmatter;
           return (
-            <article key={project.path} className="">
+            <article
+              key={project.path}
+              className="column is-4-desktop is-6-tablet is-12-phone"
+            >
               <h1 className="title is-1">{project.title}</h1>
               <p>
                 <span>{project.date}</span>

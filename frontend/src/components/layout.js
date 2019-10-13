@@ -1,73 +1,32 @@
 import React from 'react';
-import { StaticQuery, graphql, Link } from 'gatsby';
+import { Link } from 'gatsby';
 import '../styles/style.scss';
 import { routes } from '../utils/routes';
-import { rhythm, scale } from '../utils/typography';
-
+import Footer from './footer';
 class Layout extends React.Component {
   render() {
     const { location, title, children } = this.props;
     const rootPath = `${__PATH_PREFIX__}/`;
     let header;
 
-    if (location.pathname === rootPath) {
-      header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h1>
-      );
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: `none`,
-              textDecoration: `none`,
-              color: `inherit`,
-            }}
-            to={`/`}
-          >
-            {title}
-          </Link>
-        </h3>
-      );
-    }
     return (
-      <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        <header>
-          {header}
-          {routes.map(r => {
-            return <Link to={r.path}>{r.title}</Link>;
-          })}
-        </header>
-        <main>{children}</main>
+      <div className="">
+        <nav className="navbar" role="navigation" aria-label="main navigation">
+          <div className="navbar-menu">
+            <div className="navbar-start">
+              {routes.map(r => {
+                return (
+                  <Link className="navbar-item" to={r.path}>
+                    {r.title}
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </nav>
+        <main className="container is-narrow">{children}</main>
+
+        <Footer />
       </div>
     );
   }

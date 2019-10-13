@@ -27,16 +27,14 @@ const IndexPage = props => {
   return (
     <Layout location={props.location} title={siteTitle}>
       <SEO title="Home" />
-      <h1>Hey!</h1>
-      <p>I am a full-stack Dev, currently studying at Tal Tech.✌️</p>
-      {/* {user ? signOutUI(user) : signInUI()} */}
-      <p>Some serious stuff coming in...</p>
-      <hr />
+      <h1 className="title is-1">Hey!</h1>
+      <p className="subtitle is-3">
+        I am a full-stack Dev, currently studying at Tal Tech.✌️
+      </p>
 
-      <a href="https://krass.netlify.com/rss.xml" className="button is-black">
-        Add feed to your RSS reader
-      </a>
       <h2>Github stuff comes here.••••</h2>
+
+      <section className=""></section>
     </Layout>
   );
 };
