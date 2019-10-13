@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Layout from '../components/layout';
 // import Image from '../components/image';
 import SEO from '../components/seo';
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 // const searchIndices = [
 //   { name: `Projects`, title: `Projects`, hitComp: `ProjectsHit` },
 //   { name: `Posts`, title: `Blog Posts`, hitComp: `PostHit` },
@@ -32,11 +32,10 @@ const IndexPage = props => {
       {/* {user ? signOutUI(user) : signInUI()} */}
       <p>Some serious stuff coming in...</p>
       <hr />
-      <button>
-        <a href="https://krass.netlify.com/rss.xml">
-          Add feed to your RSS reader
-        </a>
-      </button>
+
+      <a href="https://krass.netlify.com/rss.xml" className="button is-black">
+        Add feed to your RSS reader
+      </a>
       <h2>Github stuff comes here.••••</h2>
     </Layout>
   );

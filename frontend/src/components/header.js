@@ -36,7 +36,7 @@ Header.propTypes = {
 };
 
 Header.defaultProps = {
-  siteTitle: ``,
+  siteTitle: `trkas`,
 };
 
 export default Header;

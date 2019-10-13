@@ -1,7 +1,7 @@
 import React from 'react';
 
 const footer = () => (
-  <footer style={{ textAlign: 'center' }}>
+  <footer className="footer" style={{ textAlign: 'center' }}>
     © {new Date().getFullYear()}, Built with
     {` `}
     <a href="https://www.gatsbyjs.org">Gatsby</a>

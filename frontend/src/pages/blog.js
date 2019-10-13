@@ -10,18 +10,23 @@ export default function BlogPage({ data, location, siteTitle }) {
     <Layout location={location} title={siteTitle}>
       <SEO title="Blog" />
       <Bio />
-      <div style={{ textAlign: 'center' }}>
+      <div>
         {data.allMarkdownRemark.edges.map(article => {
           const project = article.node.frontmatter;
           return (
-            <article key={project.path}>
+            <article key={project.path} className="">
+              <h1 className="title is-1">{project.title}</h1>
+              <p>
+                <span>{project.date}</span>
+              </p>
+              <p
+                className=""
+                dangerouslySetInnerHTML={{ __html: article.node.excerpt }}
+              />
               <Link to={project.path} style={{ textDecoration: 'none' }}>
-                <h1>{project.title}</h1>
-                <p>
-                  <span>{project.date}</span>
-                </p>
-                <p dangerouslySetInnerHTML={{ __html: article.node.excerpt }} />
-                <button type="link">Read More</button>
+                <button className="button is-light" type="link">
+                  Read More
+                </button>
               </Link>
             </article>
           );

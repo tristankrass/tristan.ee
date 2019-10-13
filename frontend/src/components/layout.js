@@ -1,5 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
+import '../styles/style.scss';
 import { routes } from '../utils/routes';
 import { rhythm, scale } from '../utils/typography';
 
