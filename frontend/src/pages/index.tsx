@@ -3,6 +3,7 @@ import Layout from '../components/layout';
 // import Image from '../components/image';
 import SEO from '../components/seo';
 import { graphql, Link } from 'gatsby';
+import { Github } from '../components/github';
 // const searchIndices = [
 //   { name: `Projects`, title: `Projects`, hitComp: `ProjectsHit` },
 //   { name: `Posts`, title: `Blog Posts`, hitComp: `PostHit` },
@@ -33,7 +34,7 @@ const IndexPage = props => {
       </p>
 
       <h2>Github stuff comes here.••••</h2>
-
+      <Github />
       <section className=""></section>
     </Layout>
   );

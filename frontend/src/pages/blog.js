@@ -5,6 +5,9 @@ import Layout from '../components/layout';
 import SEO from '../components/seo';
 import Bio from '../components/bio';
 
+// Some inspiration can be found here
+// : https://juliette.sh/
+// Alternatively here .-> https://themes.stackbit.com/demos/fjord/
 export default function BlogPage({ data, location, siteTitle }) {
   return (
     <Layout location={location} title={siteTitle}>

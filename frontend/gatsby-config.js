@@ -1,24 +1,34 @@
 require('dotenv').config({
   path: `.env`,
 });
-console.log(process.env.GATSBY_GRAPHQL_IDE);
+console.log(
+  '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+);
+
+console.log(
+  '+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++'
+);
 
 module.exports = {
   siteMetadata: {
     title: `Tristan Krass`,
     description: `I am a bussiness oriented developer. While not developing my next crazy idea, I am playing football`,
     author: `@tristankrass`,
-    siteUrl: `https://krass.netlify.com/`,
+    siteUrl: `https://tristan.ee/`,
+    copyright: `$tk © ${new Date().getFullYear()}`,
     social: {
       twitter: 'tristankrass',
-      github: '',
-      instagram: '',
+      github: 'tristankrass',
+      instagram: 'tristankrass',
     },
   },
   plugins: [
     `gatsby-plugin-sass`,
+    `gatsby-plugin-mdx`,
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-feed`,
+    `gatsby-plugin-typescript`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -26,6 +36,7 @@ module.exports = {
         path: `${__dirname}/content/projects`,
       },
     },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -60,23 +71,22 @@ module.exports = {
         background_color: `#0336FF`,
         theme_color: `#0336FF`,
         display: `standalone`,
-        icon: `src/images/logo.png`, // This path is relative to the root of the site.
+        icon: `src/images/logo.png`,
       },
     },
     `gatsby-plugin-offline`,
-
-    // resolve: `gatsby-source-github-api`,
-    // options: {
-    //   // token: required by the GitHub API
-    //   token: process.env.GH_TOKEN,
-    // GraphQLquery: defaults to a search query
-    // graphQLQuery: anotherString,
-    // // variables: defaults to variables needed for a search query
-    // variables: someObject,
-    // },
-
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        typeName: `GitHub`,
+        fieldName: `github`,
+        url: `https://api.github.com/graphql`,
+        headers: {
+          Authorization: `bearer ${process.env.GH_TOKEN}`,
+        },
+        fetchOptions: {},
+      },
+    },
+    `gatsby-plugin-offline`,
   ],
 };
